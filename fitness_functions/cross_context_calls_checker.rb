@@ -50,7 +50,7 @@ module FitnessFunctions
       di_imports = ParseFileDependencies.new.call(file_path)
 
       puts "Checking: '#{file_path}'"
-      puts "Dependencies for file: #{di_imports}"
+      puts "Dependecies for file: #{di_imports}"
 
       di_imports.each do |dependency|
         next if dependency.start_with?(*whitelist)
