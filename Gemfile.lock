@@ -71,6 +71,7 @@ DEPENDENCIES
   parser
   rake
   rspec (~> 3.11)
+  rubocop (~> 1.26)
   rubocop-rake
   zeitwerk
 
