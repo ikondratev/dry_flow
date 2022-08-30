@@ -9,5 +9,6 @@ gem 'zeitwerk'
 gem 'rake'
 gem 'parser'
 gem 'dotenv', '~> 2.1', '>= 2.1.1'
-gem 'rubocop-rake'
+gem 'rubocop', '~> 1.26'
+gem 'rubocop-rake', require: false
 gem 'rspec', '~> 3.11'
