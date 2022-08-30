@@ -1,5 +1,5 @@
-require "rubygems"
-require "rake"
+require 'rubygems'
+require 'rake'
 
 desc "Run spec"
 task default: %i[rubocop ff]
