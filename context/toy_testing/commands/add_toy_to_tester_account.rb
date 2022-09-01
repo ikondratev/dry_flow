@@ -25,19 +25,19 @@ module ToyTesting
       def find_account(account_id)
         account = account_repo.find_by(id: account_id)
 
-        account ? Success(account) : Failure([:account_not_found, { account_id: account_id }])
+        account ? Success(account) : Failure([:account_not_found, { error: "account wasn't found" }])
       end
 
       def find_toys_by_account(id)
         toys = toy_repo.where(test_account_id: id)
 
-        toys.size > MAX_TOYS_IN_QUEUE ? Failure([:queue_full, { toys: toys }]) : Success(toys)
+        toys.size > MAX_TOYS_IN_QUEUE ? Failure([:queue_full, { error: "queue is full" }]) : Success(toys)
       end
 
       def add_toy_to_account(account, toy_id, toys)
-        Failure([:toys_exist_in_queue, { toy_id: toy_id }]) unless toys.find { |t| t.id == toy_id }.nil?
+        Failure([:toys_exist_in_queue, { error: "toy already testing" }]) unless toys.find { |t| t.id == toy_id }.nil?
 
-        Success(toy_repo.add_test_account(id: toy_id, account_id: account.id))
+        Success(toy_id: toy_repo.add_test_account(id: toy_id, account_id: account.id))
       end
     end
   end

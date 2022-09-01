@@ -15,7 +15,8 @@ module ToyTesting
             id: row["id"].to_i,
             name: row["name"],
             last_name: row["lastname"],
-            email: row["email"]
+            email: row["email"],
+            blocked: row["blocked"] || false
           )
         end
       end

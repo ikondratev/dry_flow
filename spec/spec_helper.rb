@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Require this file for unit tests
-ENV['PROJECT_ENV'] ||= 'test'
+ENV['MODE'] ||= 'local'
 
 require_relative '../config/boot'
 
