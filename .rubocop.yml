@@ -5,6 +5,8 @@ AllCops:
     - bin/*
     - spec/**/**
     - fitness_functions/**/**
+    - system/**/**
+    - db/**/**
 
 Style/FrozenStringLiteralComment:
   Enabled: false
