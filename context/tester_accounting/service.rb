@@ -1,4 +1,4 @@
-module Account
+module TesterAccounting
   class Service
     def call
       puts "Call from account.service"

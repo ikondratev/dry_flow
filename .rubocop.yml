@@ -5,6 +5,8 @@ AllCops:
     - bin/*
     - spec/**/**
     - fitness_functions/**/**
+    - system/**/**
+    - db/**/**
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -73,4 +75,10 @@ Style/NumericLiteralPrefix:
   Enabled: false
 
 Layout/EmptyLineBetweenDefs:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/IfUnlessModifier:
   Enabled: false

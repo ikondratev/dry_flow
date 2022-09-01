@@ -1,6 +1,6 @@
 require "dotenv"
 
-Dotenv.load(".env", ".env.#{ENV['APP_ENV']}")
+Dotenv.load(".env.prod", ".env.local")
 
 require "./system/container"
 Container.finalize!
