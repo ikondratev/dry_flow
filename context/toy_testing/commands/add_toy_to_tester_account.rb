@@ -1,8 +1,8 @@
 module ToyTesting
   module Commands
     class AddToyToTesterAccount
-      include Dry::Monads[:result]
-      include Dry::Monads::Do.for(:call)
+      include Dry::Monads[:result, :do]
+      # include Dry::Monads::Do.for(:call)
 
       include Import[
                 account_repo: "context.toy_testing.repositories.account",
@@ -13,9 +13,8 @@ module ToyTesting
 
       # @param [String] toy_id
       # @param [String] account_id
-      def call(toy_id:, account_id:)
+      def call(toy_id, account_id)
         account = yield find_account(account_id)
-
         toys = yield find_toys_by_account(account.id)
 
         add_toy_to_account(account, toy_id, toys)

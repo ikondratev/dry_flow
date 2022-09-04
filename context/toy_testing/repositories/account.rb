@@ -11,11 +11,12 @@ module ToyTesting
 
       def raw_to_entity(raw_result)
         raw_result.map do |row|
-          Accounting::Entities::Account.new(
+          ToyTesting::Entities::Account.new(
             id: row["id"].to_i,
             name: row["name"],
             last_name: row["lastname"],
-            email: row["email"]
+            email: row["email"],
+            blocked: row["blocked"] || false
           )
         end
       end

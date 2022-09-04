@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 
 desc 'Run spec'
-task default: %i[rubocop spec ff]
+task default: %i[rubocop ff]
 
 desc 'Linter'
 require 'rubocop/rake_task'

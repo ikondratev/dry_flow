@@ -7,6 +7,12 @@ CONTEXT_MAP = {
         context.toy_testing.repositories.toy
         context.toy_testing.repositories.account
       ]
+    },
+    "apps/http/actions/commands/add_toy_to_tester.rb": {
+      whitelist: %w[
+        hanami.action.configuration
+        context.toy_testing.commands.add_toy_to_tester_account
+      ]
     }
   }
 }.freeze

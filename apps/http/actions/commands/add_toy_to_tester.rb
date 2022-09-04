@@ -14,16 +14,16 @@ module HTTP
 
         def handle(req, res)
           result = command.call(
-            toy_id: req.params[:id],
-            account_id: req.params[:account_id]
+            req.params[:id],
+            req.params[:account_id]
           )
 
           case result
           in Success
             res.status  = 200
             res.body    = result.value!.to_json
-          in Failure[_, error_message]
-            halt 422, error_message.to_json
+          in Failure[error, error_message]
+            halt 422, { error: error, error_message: error_message }.to_json
           end
         end
       end
