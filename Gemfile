@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.2'
+ruby '3.1.0'
 
 gem 'dry-system', '0.25'
 gem 'zeitwerk'
@@ -15,7 +15,14 @@ gem 'dry-schema', '1.9'
 gem 'dry-types', '1.5'
 gem 'dry-struct', '1.0'
 gem 'activerecord'
+gem 'rack', '~> 2.2', '>= 2.2.4'
 gem 'pg'
+
+# HTTP transport layer
+gem 'hanami-api'
+gem 'hanami-controller', git: 'https://github.com/hanami/controller.git', tag: 'v2.0.0.beta1'
+gem 'hanami-validations', git: 'https://github.com/hanami/validations.git', tag: 'v2.0.0.beta1'
+gem 'puma', '~> 3.12.4'
 
 # Test group
 gem 'rspec', '~> 3.11'

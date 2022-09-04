@@ -76,3 +76,6 @@ Style/NumericLiteralPrefix:
 
 Layout/EmptyLineBetweenDefs:
   Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
