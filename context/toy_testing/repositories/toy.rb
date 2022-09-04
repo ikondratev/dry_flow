@@ -16,12 +16,11 @@ module ToyTesting
       end
 
       def add_test_account(id:, account_id:)
-        conn.prepare("inse#{id}", "INSERT INTO
+        db.prepare("inse#{id}", "INSERT INTO
                   played_in(account_id, name, year, position)
                   VALUES ($1)")
 
-        conn.exec_prepared("inse#{id}",
-                           [account_id])
+        db.exec_prepared("inse#{id}", [account_id])
 
         find_by(id: id)
       end
