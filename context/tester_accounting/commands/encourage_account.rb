@@ -27,17 +27,17 @@ module TesterAccounting
       def find_account(account_id)
         account = account_repo.find_by(id: account_id)
 
-        account ? Success(account) : Failure([:account_not_found, { account_id: account_id }])
+        account ? Success(account) : Failure([:account_not_found, { error: "account wasn't found" }])
       end
 
       def check_account(account)
-        account.is_blocked? ? Failure([:account_was_blocked, { account_id: account.id }]) : Success(account)
+        account.is_blocked? ? Failure([:account_was_blocked, { error: "account was blocked" }]) : Success(account)
       end
 
       def find_reports(account_id)
         reports = report_repo.where(account_id: account_id)
 
-        reports.size.positive? ? Success(reports) : Failure([:nothing_was_tested, { account_id: account_id }])
+        reports.size.positive? ? Success(reports) : Failure([:nothing_was_tested, { error: "nothing was tested" }])
       end
 
       def calculate_score(reports)
@@ -46,7 +46,7 @@ module TesterAccounting
         end
 
         unless successful_reports.size.positive?
-          Failure([:nothing_was_tested, { successful_reports: successful_reports }])
+          Failure([:nothing_was_tested, { error: "nothing was tested" }])
         end
 
         successful_reports.each do |report|
@@ -54,7 +54,7 @@ module TesterAccounting
 
           next if toy
 
-          Failure([:wrong_toy, { toy_id: toy_id }])
+          Failure([:wrong_toy, { error: "toy wasn't found" }])
         end
 
         Success(SCORE_SIZE * successful_reports.size)
@@ -63,7 +63,7 @@ module TesterAccounting
       def add_score_to_account(account, score)
         new_score = account.score + score
 
-        Success(account_repo.add_score(account.id, new_score))
+        Success(scored: account_repo.add_score(account.id, new_score))
       end
     end
   end

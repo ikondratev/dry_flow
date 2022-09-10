@@ -24,6 +24,6 @@ RSpec.describe TesterAccounting::Commands::EncourageAccount, type: :command do
     let(:account) { nil }
 
     it { expect(subject).to be_failure }
-    it { expect(subject.failure).to eq([:account_not_found, { account_id: 1 }]) }
+    it { expect(subject.failure).to eq([:account_not_found, { error: "account wasn't found" }]) }
   end
 end
